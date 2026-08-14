@@ -180,7 +180,7 @@ docker run -d --name polls-mysql -p 3306:3306 \
 
 2) Configure datasource (add to src/main/resources/application.properties or set env vars):
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/polls_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+spring.datasource.url=jdbc:mysql://localhost:3306/polling_app?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=falseuseSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
 spring.datasource.username=polls_user
 spring.datasource.password=change_me_strong_password
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
