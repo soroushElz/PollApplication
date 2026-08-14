@@ -1,6 +1,6 @@
-# 📊 Spring Boot Polling Platform
+# 📊 Polling Platform
 
-A feature-rich, reactive polling backend application This platform enables secure user authentication, interactive poll creation[...]
+A feature-rich, reactive polling backend application This platform enables secure user authentication, interactive poll creation
 
 ---
 
