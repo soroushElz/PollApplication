@@ -1,4 +1,4 @@
-# 📊 Spring Boot & Keycloak Polling Platform
+# 📊 Spring Boot Polling Platform
 
 A feature-rich, reactive polling backend application built with **Spring Boot 3**, **Keycloak**, and **Project Reactor**. This platform enables secure user authentication, interactive poll creation, voting, and real-time live vote streaming via **Server-Sent Events (SSE)**.
 
