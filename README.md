@@ -130,7 +130,10 @@ spring.jpa.hibernate.ddl-auto=update
 ```
 
 3) Build & run:
-- Run in dev: mvn spring-boot:run
+- Run in dev: 
+ ```bash
+  mvn spring-boot:run
+```
 - Or package and run jar:
 ```bash
   mvn -DskipTests package
