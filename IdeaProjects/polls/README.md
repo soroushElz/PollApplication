@@ -164,7 +164,7 @@ Fetches a paginated list of polls voted on by the specified user.
 
 ---
 
-## 📚 Concise Quick Start — Run locally (MySQL + Maven)
+## 📚  Quick Start — Run locally (MySQL + Maven)
 
 Prerequisites: Java 17, Maven, Docker (or local MySQL).
 
@@ -172,7 +172,7 @@ Prerequisites: Java 17, Maven, Docker (or local MySQL).
 ```bash
 docker run -d --name polls-mysql -p 3306:3306 \
   -e MYSQL_ROOT_PASSWORD=rootpwd \
-  -e MYSQL_DATABASE=polls_db \
+  -e MYSQL_DATABASE=polling_app \
   -e MYSQL_USER=polls_user \
   -e MYSQL_PASSWORD=change_me_strong_password \
   mysql:8.0
