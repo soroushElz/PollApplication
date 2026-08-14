@@ -20,7 +20,7 @@ The application relies on the following core dependencies configured in `pom.xml
 ## 📁 Project Directory Structure
 
 ```
-IdeaProjects/polls/
+polls/
 ├── src/
 │   ├── main/
 │   │   ├── java/com/example/polls/
@@ -40,10 +40,8 @@ IdeaProjects/polls/
 │       ├── java/                       # Unit & integration tests
 │       └── resources/
 ├── pom.xml                              # Maven dependencies & build configuration
-├── docker-compose.yml                   # Docker services (MySQL, Keycloak)
 ├── .gitignore
 ├── README.md                            # This file
-└── LICENSE
 ```
 
 ### Key Directories:
