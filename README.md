@@ -133,6 +133,7 @@ spring.jpa.hibernate.ddl-auto=update
 - Run in dev: mvn spring-boot:run
 - Or package and run jar:
   mvn -DskipTests package
+
   java -jar target/*.jar
 
 4) Verify: curl http://localhost:8080/api/polls or check app logs for successful datasource initialization.
