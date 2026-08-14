@@ -1,6 +1,6 @@
 # 📊 Spring Boot Polling Platform
 
-A feature-rich, reactive polling backend application built with **Spring Boot 3**, **Keycloak**, and **Project Reactor**. This platform enables secure user authentication, interactive poll creation[...]
+A feature-rich, reactive polling backend application This platform enables secure user authentication, interactive poll creation[...]
 
 ---
 
@@ -10,10 +10,10 @@ The application relies on the following core dependencies configured in `pom.xml
 
 * **Java Version:** 17
 * **Framework:** Spring Boot 3.2.4
-* **Security & Auth:** Spring Security, OAuth2 Resource Server, OAuth2 Client, JJWT
+* **Security & Auth:** Spring Security, OAuth2 Resource Server, OAuth2 Client, JWT
 * **Identity Provider:** Keycloak (OAuth2 / OpenID Connect)
-* **Reactive Engine:** Project Reactor (`spring-boot-starter-webflux`) for non-blocking SSE streaming
-* **Database & Persistence:** Spring Data JPA, MySQL Connector (`mysql-connector-j`)
+* **Reactive Engine:** Project Reactor for non-blocking SSE streaming
+* **Database & Persistence:** Spring Data JPA, MySQL
 
 
 ---
@@ -68,6 +68,41 @@ Access the Admin Console at `http://localhost:8080` (credentials: `admin` / `adm
    * **Web Origins:** `http://localhost:3000` (for CORS)
 5. Save changes. In **Advanced Settings**, ensure **Code Challenge Method** is set to `S256`.
 
+---
+## 📚  Quick Start — Run locally (MySQL + Maven)
+
+Prerequisites: Java 17, Maven, Docker (or local MySQL).
+
+1) Start MySQL (Docker):
+```bash
+docker run -d --name polls-mysql -p 3306:3306 \
+  -e MYSQL_ROOT_PASSWORD=rootpwd \
+  -e MYSQL_DATABASE=polling_app \
+  -e MYSQL_USER=polls_user \
+  -e MYSQL_PASSWORD=change_me_strong_password \
+  mysql:8.0
+```
+
+2) Configure datasource (add to src/main/resources/application.properties or set env vars):
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/polling_app?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=falseuseSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+spring.datasource.username=polls_user
+spring.datasource.password=change_me_strong_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+```
+
+3) Build & run:
+- Run in dev: mvn spring-boot:run
+- Or package and run jar:
+  mvn -DskipTests package
+  java -jar target/*.jar
+
+4) Verify: curl http://localhost:8080/api/polls or check app logs for successful datasource initialization.
+
+Notes:
+- Do not commit credentials; use environment variables for production.
+- If the app starts before MySQL is ready, retry or use a wait-for script.
 ---
 
 ## 🔌 API Reference & Endpoints
@@ -163,42 +198,3 @@ Fetches a paginated list of polls created by the specified user.
 Fetches a paginated list of polls voted on by the specified user.
 
 ---
-
-## 📚  Quick Start — Run locally (MySQL + Maven)
-
-Prerequisites: Java 17, Maven, Docker (or local MySQL).
-
-1) Start MySQL (Docker):
-```bash
-docker run -d --name polls-mysql -p 3306:3306 \
-  -e MYSQL_ROOT_PASSWORD=rootpwd \
-  -e MYSQL_DATABASE=polling_app \
-  -e MYSQL_USER=polls_user \
-  -e MYSQL_PASSWORD=change_me_strong_password \
-  mysql:8.0
-```
-
-2) Configure datasource (add to src/main/resources/application.properties or set env vars):
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/polling_app?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=falseuseSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-spring.datasource.username=polls_user
-spring.datasource.password=change_me_strong_password
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.hibernate.ddl-auto=update
-```
-
-3) Build & run:
-- Run in dev: mvn spring-boot:run
-- Or package and run jar:
-  mvn -DskipTests package
-  java -jar target/*.jar
-
-4) Verify: curl http://localhost:8080/api/polls or check app logs for successful datasource initialization.
-
-Notes:
-- Do not commit credentials; use environment variables for production.
-- If the app starts before MySQL is ready, retry or use a wait-for script.
-
----
-
-If you want, I can add a docker-compose.yml and an application.properties file to this repo so the project starts with a single docker-compose up. Tell me if you'd like me to create those files.
