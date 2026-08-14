@@ -14,7 +14,7 @@ The application relies on the following core dependencies configured in `pom.xml
 * **Identity Provider:** Keycloak (OAuth2 / OpenID Connect)
 * **Reactive Engine:** Project Reactor (`spring-boot-starter-webflux`) for non-blocking SSE streaming
 * **Database & Persistence:** Spring Data JPA, MySQL Connector (`mysql-connector-j`)
-* **Validation & Utilities:** Spring Boot Validation (`@Valid`), Jackson JSR310
+
 
 ---
 
