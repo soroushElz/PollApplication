@@ -15,6 +15,45 @@ The application relies on the following core dependencies configured in `pom.xml
 * **Reactive Engine:** Project Reactor for non-blocking SSE streaming
 * **Database & Persistence:** Spring Data JPA, MySQL
 
+---
+
+## 📁 Project Directory Structure
+
+```
+IdeaProjects/polls/
+├── src/
+│   ├── main/
+│   │   ├── java/com/example/polls/
+│   │   │   ├── config/                 # Spring configuration (Security, Keycloak, etc.)
+│   │   │   ├── controller/             # REST API endpoints
+│   │   │   ├── service/                # Business logic layer
+│   │   │   ├── repository/             # Data access layer (Spring Data JPA)
+│   │   │   ├── entity/                 # JPA entities (User, Poll, Vote, Choice)
+│   │   │   ├── dto/                    # Data Transfer Objects (request/response)
+│   │   │   ├── security/               # JWT & OAuth2 security components
+│   │   │   └── PollsApplication.java   # Main Spring Boot entry point
+│   │   └── resources/
+│   │       ├── application.properties  # Spring Boot configuration
+│   │       ├── application-dev.properties
+│   │       └── schema.sql              # Initial database schema
+│   └── test/
+│       ├── java/                       # Unit & integration tests
+│       └── resources/
+├── pom.xml                              # Maven dependencies & build configuration
+├── docker-compose.yml                   # Docker services (MySQL, Keycloak)
+├── .gitignore
+├── README.md                            # This file
+└── LICENSE
+```
+
+### Key Directories:
+- **`config/`** — Spring Security, OAuth2, Keycloak, WebFlux bean configuration
+- **`controller/`** — REST endpoints for auth, polls, votes, and user profiles
+- **`service/`** — Core business logic for poll management, voting, and user operations
+- **`repository/`** — JPA repositories for database queries
+- **`entity/`** — Persistent domain objects (User, Poll, Vote, Choice, etc.)
+- **`dto/`** — Request/response payload schemas
+- **`security/`** — JWT token utilities, OAuth2 converters, Keycloak integration
 
 ---
 
