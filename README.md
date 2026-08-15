@@ -20,7 +20,7 @@ The application relies on the following core dependencies configured in `pom.xml
 ## 📁 Project Directory Structure
 
 ```
-polls/
+
 ├── src/
 │   ├── main/
 │   │   ├── java/com/example/polls/
