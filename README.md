@@ -63,7 +63,7 @@ The application relies on the following core dependencies configured in `pom.xml
 * **User Profile & Metrics:** Public user profile retrieval including account registration timestamp, total created polls, and total cast votes.
 
 ### ⚡ 2. Reactive Real-Time Vote Streaming
-* **Server-Sent Events (SSE):** Dedicated `/api/polls/votes/stream` endpoint emitting `text/event-stream` using Project Reactor (`Flux`). Real-time vote updates are pushed asynchronously to connec[...]
+* **Server-Sent Events (SSE):** Dedicated `/api/polls/votes/stream` endpoint emitting `text/event-stream` using Project Reactor (`Flux`). Real-time vote updates are pushed asynchronously to connected users
 
 ### 📊 3. Poll Management & Voting
 * **Create & Browse Polls:** Authenticated users can publish new polls with custom expiration periods (days/hours) and browse paginated poll lists.
